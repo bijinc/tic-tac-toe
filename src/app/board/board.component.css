@@ -1,0 +1,20 @@
+.status-bar {
+  width: 340px;
+  margin:auto;
+}
+
+.board {
+  width: 340px;
+  height: 340px;
+  margin: auto;
+}
+
+.grid {
+  display:grid;
+}
+
+.square {
+  background-color: yellow;
+  width:100px;
+  height:100px;
+}
