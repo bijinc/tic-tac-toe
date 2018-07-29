@@ -1,5 +1,5 @@
 .status-bar {
-  width: 340px;
+  width: 300px;
   margin:auto;
 }
 
@@ -25,8 +25,8 @@ input:focus {
 
 
 .board {
-  width: 340px;
-  height: 340px;
+  width: 300px;
+  height: 300px;
   margin: auto;
 }
 
@@ -35,11 +35,11 @@ input:focus {
 }
 
 .square {
-  background-color: #484848;
+  background-color: #FFF;
   width:100px;
   height:100px;
 }
 
 .square:hover {
-  background-color: #6d6d6d;
+  background-color: #dadada;
 }
