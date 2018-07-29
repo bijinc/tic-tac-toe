@@ -22,6 +22,8 @@ input:focus {
   outline-width: 0;
 }
 
+
+
 .board {
   width: 340px;
   height: 340px;
@@ -33,8 +35,11 @@ input:focus {
 }
 
 .square {
-  background-color: darkgrey;
+  background-color: #484848;
   width:100px;
   height:100px;
+}
 
+.square:hover {
+  background-color: #6d6d6d;
 }
