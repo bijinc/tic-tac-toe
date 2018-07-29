@@ -1,27 +1,32 @@
 .status-bar {
   width: 300px;
-  margin:auto;
+  margin: auto;
 }
 
 .player1 {
   display: inline-block;
   float: left;
-  border: 0;
-  color: #cb1111;
+  height: 30px;
+  width: 30px;
+  background-color: #cb1111;
 }
 
 .player2 {
   display: inline-block;
   float: right;
-  border: 0;
+  height: 30px;
+  width: 30px;
   text-align: right;
-  color: #0d297f;
+  background-color: #0d297f;
 }
 
-input:focus {
+/* input:focus {
   outline-width: 0;
-}
+} */
 
+.turn-indicator {
+  margin-bottom: 30px;
+}
 
 
 .board {
@@ -41,5 +46,5 @@ input:focus {
 }
 
 .square:hover {
-  background-color: #dadada;
+  background-color: #e9e9e9;
 }
