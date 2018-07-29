@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-
+  player1 = 'PLAYER 1';
+  player2 = "PLAYER 2";
   constructor() { }
 
   ngOnInit() {
