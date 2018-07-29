@@ -1,0 +1,40 @@
+.status-bar {
+  width: 340px;
+  margin:auto;
+}
+
+.player1 {
+  display: inline-block;
+  float: left;
+  border: 0;
+  color: #cb1111;
+}
+
+.player2 {
+  display: inline-block;
+  float: right;
+  border: 0;
+  text-align: right;
+  color: #0d297f;
+}
+
+input:focus {
+  outline-width: 0;
+}
+
+.board {
+  width: 340px;
+  height: 340px;
+  margin: auto;
+}
+
+.grid {
+  display:inline-block;
+}
+
+.square {
+  background-color: darkgrey;
+  width:100px;
+  height:100px;
+
+}
