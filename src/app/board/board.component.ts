@@ -8,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 export class BoardComponent implements OnInit {
   player1 = 'PLAYER 1';
   player2 = "PLAYER 2";
+
+  playerTurn = 1;
+  gameOver = false;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  move() {
+    if (playerTurn === 1) {
+      playerTurn = 2;
+    }
+    else if (playerTurn === 2) {
+      playerTurn = 1;
+    }
+    gameWon();
+  }
+
+  gameWon() {
+
   }
 
 }
