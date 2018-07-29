@@ -14,13 +14,13 @@ export class BoardComponent implements OnInit {
   ngOnInit() { }
 
   move() {
-    if (playerTurn === 1) {
-      playerTurn = 2;
+    if (this.playerTurn === 1) {
+      this.playerTurn = 2;
     }
-    else if (playerTurn === 2) {
-      playerTurn = 1;
+    else if (this.playerTurn === 2) {
+      this.playerTurn = 1;
     }
-    gameWon();
+    this.gameWon();
   }
 
   gameWon() {
