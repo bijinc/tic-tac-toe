@@ -24,6 +24,8 @@ export class BoardComponent implements OnInit {
     // else if (this.playerTurn === 2) {
     //   this.playerTurn = 1;
     // }
+
+    //add X or O here 
     this.gameWon();
   }
 
