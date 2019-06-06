@@ -6,18 +6,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  player1 = true;
-  player2 = false;
-  //playerTurn = 1;
+  // player1 = true;
+  // player2 = false;
+  board: string[] = [];
+  playerTurn = 'X';
   gameOver = false;
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.initializeBoard();
+  }
+
+  initializeBoard() {
+    // for (let i = 0; i < size; i++) {
+    //   this.board[i] = [];
+    //   for (let j = 0; j < size; j++) {
+    //     this.board[i][j] = '-';
+    //   }
+    // }
+    for (let i = 0; i < 9; i++) {
+      this.board[i] = '-';
+    }
+  }
 
   move(index) {
     // update board
-    console.log(index);
+    console.log('Update square ' + index + ' with value ' + this.playerTurn);
+    this.board[index] = this.playerTurn;
+    console.log('New value of square ' + index + ': ' + this.board[index]);
     // check for win
     this.gameWon();
 
