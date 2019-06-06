@@ -15,7 +15,13 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() { }
 
-  move() {
+  move(index) {
+    // update board
+    console.log(index);
+    // check for win
+    this.gameWon();
+
+    // update player turn
     this.player1 = !this.player1;
     this.player2 = !this.player2;
     // if (this.playerTurn === 1) {
@@ -24,9 +30,6 @@ export class BoardComponent implements OnInit {
     // else if (this.playerTurn === 2) {
     //   this.playerTurn = 1;
     // }
-
-    //add X or O here 
-    this.gameWon();
   }
 
   gameWon() {
