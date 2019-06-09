@@ -1,49 +1,52 @@
 
 <mat-card class="board">
   <div class="grid">
-    <div class="square" (click)="move(0);">
-
+    <div class="square" id="0" (click)="move($event);">
+      <div *ngIf="board[0]; else default">{{board[0]}}</div>
     </div>
-    <div class="square" (click)="move(3);">
-
+    <div class="square" id="3" (click)="move($event);">
+      <div *ngIf="board[3]; else default">{{board[3]}}</div>
     </div>
-    <div class="square" (click)="move(6);">
-
+    <div class="square" id="6" (click)="move($event);">
+      <div *ngIf="board[6]; else default">{{board[6]}}</div>
+    </div>
+    <ng-template #default>
+      <div>{{playerTurn}}</div>
+    </ng-template>
+  </div>
+  <div class="grid">
+    <div class="square" id="1" (click)="move($event);">
+      <div *ngIf="board[1]; else default">{{board[1]}}</div>
+    </div>
+    <div class="square" id="4" (click)="move($event);">
+      <div *ngIf="board[4]; else default">{{board[4]}}</div>
+    </div>
+    <div class="square" id="7" (click)="move($event);">
+      <div *ngIf="board[7]; else default">{{board[7]}}</div>
     </div>
   </div>
   <div class="grid">
-    <div class="square" (click)="move(1);">
-
+    <div class="square" id="2" (click)="move($event);">
+      <div *ngIf="board[2]; else default">{{board[2]}}</div>
     </div>
-    <div class="square" (click)="move(4);">
-
+    <div class="square" id="5" (click)="move($event);">
+      <div *ngIf="board[5]; else default">{{board[5]}}</div>
     </div>
-    <div class="square" (click)="move(7);">
-
-    </div>
-  </div>
-  <div class="grid">
-    <div class="square" (click)="move(2);">
-
-    </div>
-    <div class="square" (click)="move(5);">
-
-    </div>
-    <div class="square" (click)="move(8);">
-
+    <div class="square" id="8" (click)="move($event);">
+      <div *ngIf="board[8]; else default">{{board[8]}}</div>
     </div>
   </div>
 </mat-card>
 
 <mat-card class="status-bar">
   <mat-card-content class="turn-indicator">
-    <span class="player1" *ngIf="player1"></span>
-    <span class="player2" *ngIf="player2"></span>
+    <span class="player1" *ngIf="playerTurn === 'X'">X</span>
+    <span class="player2" *ngIf="playerTurn === 'O'">O</span>
   </mat-card-content>
   <!-- <input class="player1" placeholder="PLAYER 1"> -->
   <!-- <input class="player2" placeholder="PLAYER 2"> -->
   <mat-card-actions>
     <button mat-button>Undo</button>
-    <button mat-button color="primary">Reset</button>
+    <button mat-button color="primary" (click)="reset();">Reset</button>
   </mat-card-actions>
 </mat-card>

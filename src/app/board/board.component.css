@@ -9,6 +9,9 @@
   height: 30px;
   width: 30px;
   background-color: #cb1111;
+  text-align: center;
+  color: white;
+  font-size: 24px;
 }
 
 .player2 {
@@ -16,8 +19,10 @@
   float: right;
   height: 30px;
   width: 30px;
-  text-align: right;
   background-color: #0d297f;
+  text-align: center;
+  color: white;
+  font-size: 24px;
 }
 
 /* input:focus {
@@ -32,16 +37,21 @@
   width: 300px;
   height: 300px;
   margin: auto;
+  background-color: black;
 }
 
 .grid {
-  display:inline-block;
+  display: inline-block;
 }
 
 .square {
   background-color: #FFF;
   width:100px;
   height:100px;
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  display: inline-block;
 }
 
 .square:hover {
