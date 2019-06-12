@@ -19,101 +19,88 @@ export class BoardComponent implements OnInit {
 
   move (event) {
     // update board
-    // console.log('Update square ' + index + ' with value ' + this.playerTurn);
-    // this.board[index] = this.playerTurn;
-    // console.log('New value of square ' + index + ': ' + this.board[index]);
-    //
-    // var square = document.getElementById(index); // cache the square
-    //
-    // square.addEventListener('click', function() {
-    //   if (this.playerTurn === 'X') {
-    //     square.style.background = #cb1111;
-    //   }
-    //   else {
-    //     square.style.background = #0d297f;
-    //   }
-    // });
-
     if (event.target) {
       let index = event.target.parentElement.id;
-      // console.log(event.target.parentElement);
       console.log('Update square ' + index + ' with value ' + this.playerTurn);
       if (this.board[index] != null) {
         console.log('Invalid move');
       }
       else {
         this.board[index] = this.playerTurn;
-      console.log('New value of square ' + index + ': ' + this.board[index]);
+        console.log('New value of square ' + index + ': ' + this.board[index]);
 
-      if (this.playerTurn === 'X') {
-        event.target.parentElement.style.background = '#cb1111';
-      }
-      else {
-        event.target.parentElement.style.background = '#0d297f';
-      }
-      this.moves++;
-
-      // check for win
-      if (this.gameWon()) {
-
-      }
-
-      // update player turn
-      if (this.moves === 9) {
-        console.log("It's a tie!")
-      }
-      else {
         if (this.playerTurn === 'X') {
-          this.playerTurn = 'O';
+          // event.target.parentElement.style.background = '#cb1111';
+          // event.target.parentElement.classList.remove('square');
+          event.target.parentElement.className = 'square1';
         }
-        else if (this.playerTurn === 'O') {
-          this.playerTurn = 'X';
+        else {
+          // event.target.parentElement.style.background = '#0d297f';
+          // event.target.parentElement.classList.remove('square');
+          event.target.parentElement.className = 'square2';
+        }
+        this.moves++;
+
+        // check for win
+        if (this.gameWon()) {
+          this.disableBoard();
+        }
+        else {
+          // update player turn
+          if (this.moves === 9) {
+            console.log("It's a tie!")
+          }
+          else {
+            if (this.playerTurn === 'X') {
+              this.playerTurn = 'O';
+            }
+            else if (this.playerTurn === 'O') {
+              this.playerTurn = 'X';
+            }
+          }
         }
       }
-    }
     }
   }
 
   gameWon() {
     if (this.checkHorizontal() || this.checkVertical() || this.checkDiagonal()) {
       return true;
-      // disable board
     }
     return false;
   }
 
-  checkHorizontal(): boolean {
+  checkVertical() {
     for (let i = 0; i < 3; i=i+3) {
       if (this.board[i] === this.board[i+1] && this.board[i+1] === this.board[i+2]) {
         if (this.board[i] != null) {
-          console.log("Game won");
+          console.log("Game won - Vertical");
+          return true;
         }
-        return true;
       }
     }
     return false;
   }
 
-  checkVertical(): boolean {
+  checkHorizontal() {
     for (let i = 0; i < 3; i++) {
       if (this.board[i] === this.board[i+3] && this.board[i+3] === this.board[i+6]) {
         if (this.board[i] != null) {
-          console.log("Game won");
+          console.log("Game won - Horizontal");
+          return true;
         }
-        //console.log("Game won");
-        return true;
       }
     }
     return false;
   }
 
-  checkDiagonal(): boolean {
-    if (this.board[4] != null) {
-      console.log("Game won");
+  checkDiagonal() {
+    if (this.board[4] == null) {
+      return false;
     }
     for (let i = 0; i <= 2; i=i+2) {
       if (this.board[i+0] === this.board[4] && this.board[4] === this.board[8-i]) {
-        console.log("Game won");
+        console.log("Game won - Diagonal");
         return true;
       }
     }
@@ -131,10 +118,11 @@ export class BoardComponent implements OnInit {
   }
 
   reset() {
+    console.log('Reset');
     for (let i = 0; i < 9; i++) {
       this.board[i] = null;
-      // document.getElementById(i).className = "square";
-      background-color = #FFF;
+      // document.getElementById(i as string).style.background = '#fff';
+      document.getElementById(i as string).className = 'square';
     }
     this.moves = 0;
     this.playerTurn = 'X';
