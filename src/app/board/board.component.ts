@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PlayerMove } from './player-move';
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   board: string[] = [];
+  playerMoves: PlayerMove[] = [];
   playerTurn = 'X';
-  gameOver = false;
-  moves: number = 0;
+  numMoves = 0;
 
   constructor() { }
 
@@ -39,15 +41,19 @@ export class BoardComponent implements OnInit {
           // event.target.parentElement.classList.remove('square');
           event.target.parentElement.className = 'square2';
         }
-        this.moves++;
+        // console.log('New move: turn=' + this.playerTurn + ' move=' + this.numMoves + ' index=' + index);
+        this.playerMoves[this.numMoves] = new PlayerMove(this.playerTurn, this.numMoves, index);
+        console.log(this.playerMoves[this.numMoves]);
+        this.numMoves++;
 
         // check for win
         if (this.gameWon()) {
+
           this.disableBoard();
         }
         else {
           // update player turn
-          if (this.moves === 9) {
+          if (this.numMoves === 9) {
             console.log("It's a tie!")
           }
           else {
@@ -108,6 +114,7 @@ export class BoardComponent implements OnInit {
   }
 
   initializeBoard() {
+    // this.playerMoves = new Array(9);
     for (let i = 0; i < 9; i++) {
       this.board[i] = null;
     }
@@ -122,9 +129,25 @@ export class BoardComponent implements OnInit {
     for (let i = 0; i < 9; i++) {
       this.board[i] = null;
       // document.getElementById(i as string).style.background = '#fff';
-      document.getElementById(i as string).className = 'square';
+      document.getElementById(<string><any>i).className = 'square';
     }
-    this.moves = 0;
+    this.numMoves = 0;
     this.playerTurn = 'X';
+  }
+
+  undo() {
+    // console.log('Undo ' + this.numMoves);
+    var last = this.playerMoves.pop();
+    // console.log(last);
+    this.board[last.index] = null;
+    document.getElementById(<string><any>last.index).className = 'square';
+
+    if (this.playerTurn === 'X') {
+      this.playerTurn = 'O';
+    }
+    else {
+      this.playerTurn = 'X';
+    }
+    this.numMoves--;
   }
 }

@@ -46,7 +46,7 @@
   <!-- <input class="player1" placeholder="PLAYER 1"> -->
   <!-- <input class="player2" placeholder="PLAYER 2"> -->
   <mat-card-actions>
-    <button mat-button>Undo</button>
+    <button mat-button (click)="undo();">Undo</button>
     <button mat-button color="primary" (click)="reset();">Reset</button>
   </mat-card-actions>
 </mat-card>
