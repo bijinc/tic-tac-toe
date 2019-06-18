@@ -4,9 +4,12 @@
     <div class="square" id="0" (click)="move($event);">
       <div *ngIf="board[0]; else default">{{board[0]}}</div>
     </div>
-    <div class="square" id="3" (click)="move($event);">
+    <!-- <button class="square" id="0" (click)="move($event);">
+      <div *ngIf="board[0]; else default">{{board[0]}}</div>
+    </button> -->
+    <button class="square" id="3" (click)="move($event);">
       <div *ngIf="board[3]; else default">{{board[3]}}</div>
-    </div>
+    </button>
     <div class="square" id="6" (click)="move($event);">
       <div *ngIf="board[6]; else default">{{board[6]}}</div>
     </div>
@@ -39,14 +42,19 @@
 </mat-card>
 
 <mat-card class="status-bar">
-  <mat-card-content class="turn-indicator">
-    <span class="player1" *ngIf="playerTurn === 'X'">X</span>
-    <span class="player2" *ngIf="playerTurn === 'O'">O</span>
+  <mat-card-content class="message" *ngIf="gameOver; else turn">
+    {{message}}
   </mat-card-content>
+  <ng-template #turn>
+    <mat-card-content class="turn-indicator">
+      <span class="player1" *ngIf="playerTurn === 'X'">X</span>
+      <span class="player2" *ngIf="playerTurn === 'O'">O</span>
+    </mat-card-content>
+  </ng-template>
   <!-- <input class="player1" placeholder="PLAYER 1"> -->
   <!-- <input class="player2" placeholder="PLAYER 2"> -->
   <mat-card-actions>
-    <button mat-button (click)="undo();">Undo</button>
+    <button mat-button id="undo" (click)="undo();">Undo</button>
     <button mat-button color="primary" (click)="reset();">Reset</button>
   </mat-card-actions>
 </mat-card>

@@ -12,6 +12,8 @@ export class BoardComponent implements OnInit {
   playerMoves: PlayerMove[] = [];
   playerTurn = 'X';
   numMoves = 0;
+  gameOver = false;
+  message = '';
 
   constructor() { }
 
@@ -48,13 +50,14 @@ export class BoardComponent implements OnInit {
 
         // check for win
         if (this.gameWon()) {
-
           this.disableBoard();
         }
         else {
           // update player turn
           if (this.numMoves === 9) {
-            console.log("It's a tie!")
+            this.gameOver = true;
+            document.getElementById("undo").disabled = true;
+            this.message = 'It\'s a tie!';
           }
           else {
             if (this.playerTurn === 'X') {
@@ -71,6 +74,8 @@ export class BoardComponent implements OnInit {
 
   gameWon() {
     if (this.checkHorizontal() || this.checkVertical() || this.checkDiagonal()) {
+      this.gameOver = true;
+      this.message = this.playerTurn + ' wins!'
       return true;
     }
     return false;
@@ -121,7 +126,7 @@ export class BoardComponent implements OnInit {
   }
 
   disableBoard() {
-
+    document.getElementById("undo").disabled = true;
   }
 
   reset() {
@@ -133,12 +138,13 @@ export class BoardComponent implements OnInit {
     }
     this.numMoves = 0;
     this.playerTurn = 'X';
+    this.gameOver = false;
+    document.getElementById("undo").disabled = false;
   }
 
   undo() {
     // console.log('Undo ' + this.numMoves);
     var last = this.playerMoves.pop();
-    // console.log(last);
     this.board[last.index] = null;
     document.getElementById(<string><any>last.index).className = 'square';
 

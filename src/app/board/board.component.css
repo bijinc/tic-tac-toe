@@ -12,6 +12,7 @@
   text-align: center;
   color: white;
   font-size: 24px;
+  cursor: default;
 }
 
 .player2 {
@@ -23,6 +24,7 @@
   text-align: center;
   color: white;
   font-size: 24px;
+  cursor: default;
 }
 
 /* input:focus {
@@ -52,6 +54,8 @@
   color: white;
   font-size: 80px;
   display: inline-block;
+  cursor: pointer;
+  border-style: none;
 }
 
 .square1 {
@@ -62,6 +66,7 @@
   color: white;
   font-size: 80px;
   display: inline-block;
+  cursor: default;
 }
 
 .square2 {
@@ -72,6 +77,12 @@
   color: white;
   font-size: 80px;
   display: inline-block;
+  cursor: default;
+}
+
+.square:active:focus. .square:visited {
+
+  outline:0;
 }
 
 .square:hover {

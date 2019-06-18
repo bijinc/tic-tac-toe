@@ -5,11 +5,13 @@ import { MatButtonModule, MatExpansionModule, MatCardModule, MatInputModule, Mat
 
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardComponent
+    BoardComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
