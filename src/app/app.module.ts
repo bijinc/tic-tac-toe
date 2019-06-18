@@ -6,6 +6,7 @@ import { MatButtonModule, MatExpansionModule, MatCardModule, MatInputModule, Mat
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { MenuComponent } from './menu/menu.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MenuComponent } from './menu/menu.component';
     MatExpansionModule,
     MatCardModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AppRoutingModule
   ],
   exports: [
     MatButtonModule,
