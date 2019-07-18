@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule, MatExpansionModule, MatCardModule, MatInputModule, MatSnackBarModule} from '@angular/material';
+import { MatButtonModule, MatExpansionModule, MatCardModule, MatInputModule, MatSnackBarModule, MatButtonToggleModule, MatRadioModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
@@ -23,14 +24,19 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,
-    AppRoutingModule
+    MatButtonToggleModule,
+    MatRadioModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   exports: [
     MatButtonModule,
     MatExpansionModule,
     MatCardModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonToggleModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

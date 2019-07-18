@@ -1,8 +1,40 @@
-<p>
-  menu works!
-</p>
+<mat-accordion>
+  <mat-expansion-panel class="menu" [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Game Settings
+      </mat-panel-title>
+    </mat-expansion-panel-header>
 
-<input class="player1" placeholder="PLAYER 1">
-<input class="player2" placeholder="PLAYER 2">
+    <mat-button-toggle-group name="mode" aria-label="Game Mode" value="player">
+      <mat-button-toggle value="player" (click)="showPlayerSettings();">2 Player</mat-button-toggle>
+      <mat-button-toggle value="computer" (click)="showComputerSettings();">Computer</mat-button-toggle>
+    </mat-button-toggle-group>
 
-<button type="button" name="button">Start</button>
+    <div id="computer" style="display:none;">
+      <mat-form-field>
+        <input matInput placeholder="Player">
+      </mat-form-field>
+
+      <div>
+        <mat-radio-group aria-label="Difficulty">
+          <mat-radio-button value="1">Beginner</mat-radio-button>
+          <mat-radio-button value="2">Casual</mat-radio-button>
+          <mat-radio-button value="3">Pro</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <div id="player">
+      <mat-form-field>
+        <input matInput placeholder="Player 1">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Player 2">
+      </mat-form-field>
+    </div>
+
+    <button mat-button color="primary" name="start">Start</button>
+  </mat-expansion-panel>
+</mat-accordion>

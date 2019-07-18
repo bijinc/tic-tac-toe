@@ -56,7 +56,7 @@ export class BoardComponent implements OnInit {
           // update player turn
           if (this.numMoves === 9) {
             this.gameOver = true;
-            document.getElementById("undo").disabled = true;
+            // document.getElementById("undo").disabled = true;
             this.message = 'It\'s a tie!';
           }
           else {
@@ -126,7 +126,7 @@ export class BoardComponent implements OnInit {
   }
 
   disableBoard() {
-    document.getElementById("undo").disabled = true;
+    // document.getElementById("undo").disabled = true;
   }
 
   reset() {
@@ -139,7 +139,7 @@ export class BoardComponent implements OnInit {
     this.numMoves = 0;
     this.playerTurn = 'X';
     this.gameOver = false;
-    document.getElementById("undo").disabled = false;
+    // document.getElementById("undo").disabled = false;
   }
 
   undo() {
@@ -156,4 +156,5 @@ export class BoardComponent implements OnInit {
     }
     this.numMoves--;
   }
+
 }
